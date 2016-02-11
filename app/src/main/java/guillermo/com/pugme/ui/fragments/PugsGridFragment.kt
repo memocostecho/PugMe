@@ -1,18 +1,12 @@
 package guillermo.com.pugme.ui.fragments
 
 import android.os.Bundle
-import android.support.design.widget.CoordinatorLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import java.util.ArrayList
-
-import butterknife.Bind
 import butterknife.ButterKnife
 import guillermo.com.pugme.R
 import guillermo.com.pugme.presenters.PugsPresenter
@@ -20,17 +14,12 @@ import guillermo.com.pugme.ui.adapters.PugsAdapter
 import guillermo.com.pugme.ui.util.EndlessRecyclerOnScrollListener
 import guillermo.com.pugme.ui.viewModel.PugsViewModel
 import kotlinx.android.synthetic.main.fragment_pugs.*
+import java.util.*
 
 /**
  * Created by guillermo.rosales on 21/01/16.
  */
 class PugsGridFragment : Fragment(), PugsViewModel {
-
-    /*@Bind(R.id.pugs_recycler)
-    internal var recyclerView: RecyclerView? = null
-    @Bind(R.id.pugs_coordinator)
-    internal var coordinatorLayout: CoordinatorLayout? = null*/
-
 
     private var gridLayoutManager: GridLayoutManager? = null
     private var adapter: PugsAdapter? = null
@@ -41,8 +30,6 @@ class PugsGridFragment : Fragment(), PugsViewModel {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = PugsPresenter(this)
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,9 +50,7 @@ class PugsGridFragment : Fragment(), PugsViewModel {
 
             }
         })
-
         presenter!!.start()
-
 
     }
 
@@ -74,6 +59,5 @@ class PugsGridFragment : Fragment(), PugsViewModel {
         adapter!!.setPugsImagesUrls(imagesUrls)
         adapter!!.notifyDataSetChanged()
     }
-
 
 }

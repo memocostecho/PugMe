@@ -1,6 +1,6 @@
 package guillermo.com.pugme.model
 
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by guillermo.rosales on 21/01/16.

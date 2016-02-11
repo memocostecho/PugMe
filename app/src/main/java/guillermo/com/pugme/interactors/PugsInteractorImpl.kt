@@ -1,13 +1,11 @@
 package guillermo.com.pugme.interactors
 
 import guillermo.com.pugme.callbacks.FetchPugsUrlsCallBack
-import guillermo.com.pugme.model.PugsModel
 import guillermo.com.pugme.model.retrofit.service.PugsService
 import retrofit.GsonConverterFactory
 import retrofit.Retrofit
 import retrofit.RxJavaCallAdapterFactory
 import rx.android.schedulers.AndroidSchedulers
-import rx.functions.Action1
 import rx.schedulers.Schedulers
 
 

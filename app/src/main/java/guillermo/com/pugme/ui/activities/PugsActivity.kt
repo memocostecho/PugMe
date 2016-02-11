@@ -15,7 +15,6 @@ class PugsActivity : AppCompatActivity() {
         ButterKnife.bind(this)
         toolbar?.title = ""
         setSupportActionBar(toolbar)
-
         supportFragmentManager.beginTransaction().add(R.id.pugs_fragment_container, PugsGridFragment()).commit()
 
     }

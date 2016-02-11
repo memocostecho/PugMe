@@ -10,19 +10,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.facebook.drawee.view.SimpleDraweeView
-
-import java.io.Serializable
-import java.util.ArrayList
-
-import butterknife.Bind
 import butterknife.ButterKnife
+import com.facebook.drawee.view.SimpleDraweeView
 import guillermo.com.pugme.R
 import guillermo.com.pugme.ui.activities.ActivityFullSizePugImage
 import guillermo.com.pugme.ui.util.FrescoUtil
 import guillermo.com.pugme.ui.util.UIUtil
-import kotlinx.android.synthetic.main.pug_image_item.view.*
+import java.io.Serializable
+import java.util.*
 
 
 /**
@@ -31,7 +26,6 @@ import kotlinx.android.synthetic.main.pug_image_item.view.*
 class PugsAdapter(private val context: AppCompatActivity, private val coordinatorLayout: CoordinatorLayout?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var pugsImagesUrls = ArrayList<String>()
-
     fun setPugsImagesUrls(pugsImagesUrls: ArrayList<String>) {
         this.pugsImagesUrls = pugsImagesUrls
     }
@@ -53,7 +47,6 @@ class PugsAdapter(private val context: AppCompatActivity, private val coordinato
             UIUtil.showSnackMessage(coordinatorLayout, context?.resources!!.getString(R.string.url_copied_message))
             true
         }
-
         holder.pugImage.setOnClickListener {
             val intent = Intent(context!!, ActivityFullSizePugImage::class.java)
             intent.putExtra("photos", pugsImagesUrls as Serializable)
@@ -69,9 +62,7 @@ class PugsAdapter(private val context: AppCompatActivity, private val coordinato
 
 
     class PugImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         internal var pugImage : SimpleDraweeView = view.findViewById(R.id.pug_image) as SimpleDraweeView
-
         init {
             ButterKnife.bind(this, view)
         }
