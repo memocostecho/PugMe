@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 23
@@ -17,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
@@ -31,5 +35,19 @@ dependencies {
     compile 'com.android.support:design:23.0.1'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.commit451:PhotoView:1.2.4'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    apply plugin: 'kotlin-android-extensions'
 
+}
+buildscript {
+    ext.kotlin_version = '1.0.0-rc-1036'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
 }
