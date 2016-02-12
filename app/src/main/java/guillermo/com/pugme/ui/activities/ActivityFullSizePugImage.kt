@@ -2,7 +2,6 @@ package guillermo.com.pugme.ui.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import butterknife.ButterKnife
 import guillermo.com.pugme.R
 import guillermo.com.pugme.ui.adapters.PhotosPagerAdapter
 import kotlinx.android.synthetic.main.activity_full_size_image.*
@@ -18,7 +17,6 @@ class ActivityFullSizePugImage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_full_size_image)
-        ButterKnife.bind(this)
         toolbar?.title = ""
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

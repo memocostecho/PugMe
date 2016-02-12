@@ -10,12 +10,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.ButterKnife
 import com.facebook.drawee.view.SimpleDraweeView
 import guillermo.com.pugme.R
 import guillermo.com.pugme.ui.activities.ActivityFullSizePugImage
-import guillermo.com.pugme.ui.util.FrescoUtil
-import guillermo.com.pugme.ui.util.UIUtil
+import guillermo.com.pugme.ui.util.fillDrawee
+import guillermo.com.pugme.ui.util.showSnackMessage
 import java.io.Serializable
 import java.util.*
 
@@ -39,12 +38,13 @@ class PugsAdapter(private val context: AppCompatActivity, private val coordinato
 
     override fun onBindViewHolder(geneticHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = geneticHolder as PugImageViewHolder
-        FrescoUtil.fillDrawee(pugsImagesUrls[position], holder.pugImage, 150, 150)
+        holder.pugImage.fillDrawee(pugsImagesUrls[position], 150, 150)
         holder.pugImage?.setOnLongClickListener {
             val clipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("url", pugsImagesUrls[position])
             clipboard.primaryClip = clip
-            UIUtil.showSnackMessage(coordinatorLayout, context?.resources!!.getString(R.string.url_copied_message))
+            context.showSnackMessage(coordinatorLayout, context?.resources!!.getString(R.string
+                    .url_copied_message))
             true
         }
         holder.pugImage.setOnClickListener {
@@ -63,9 +63,6 @@ class PugsAdapter(private val context: AppCompatActivity, private val coordinato
 
     class PugImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         internal var pugImage : SimpleDraweeView = view.findViewById(R.id.pug_image) as SimpleDraweeView
-        init {
-            ButterKnife.bind(this, view)
-        }
     }
 
 

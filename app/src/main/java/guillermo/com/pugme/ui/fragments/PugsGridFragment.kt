@@ -7,7 +7,6 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.ButterKnife
 import guillermo.com.pugme.R
 import guillermo.com.pugme.presenters.PugsPresenter
 import guillermo.com.pugme.ui.adapters.PugsAdapter
@@ -39,7 +38,6 @@ class PugsGridFragment : Fragment(), PugsViewModel {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ButterKnife.bind(this, view)
         adapter = PugsAdapter(activity as AppCompatActivity, pugs_coordinator)
         gridLayoutManager = GridLayoutManager(activity, 4)
         pugs_recycler?.layoutManager = gridLayoutManager
