@@ -32,7 +32,7 @@ class PugsGridFragment : Fragment(), PugsViewModel {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_pugs, container, false)
+        val view = inflater?.inflate(R.layout.fragment_pugs, container, false)
         return view
     }
 
@@ -44,7 +44,7 @@ class PugsGridFragment : Fragment(), PugsViewModel {
         pugs_recycler?.adapter = adapter
         pugs_recycler?.addOnScrollListener(object : EndlessRecyclerOnScrollListener(gridLayoutManager as GridLayoutManager) {
             override fun onLoadMore(current_page: Int) {
-                presenter!!.fetchImagesUrls()
+                presenter?.fetchImagesUrls()
 
             }
         })
@@ -54,8 +54,8 @@ class PugsGridFragment : Fragment(), PugsViewModel {
 
     override fun setImagesUrls(urls: ArrayList<String>) {
         imagesUrls.addAll(urls)
-        adapter!!.setPugsImagesUrls(imagesUrls)
-        adapter!!.notifyDataSetChanged()
+        adapter?.setPugsImagesUrls(imagesUrls)
+        adapter?.notifyDataSetChanged()
     }
 
 }

@@ -38,17 +38,18 @@ class PugsAdapter(private val context: AppCompatActivity, private val coordinato
 
     override fun onBindViewHolder(geneticHolder: RecyclerView.ViewHolder, position: Int) {
         val holder = geneticHolder as PugImageViewHolder
-        holder.pugImage.fillDrawee(pugsImagesUrls[position], 150, 150)
+        holder.pugImage.fillDrawee(url = pugsImagesUrls[position], width = 150, height = 150)
         holder.pugImage?.setOnLongClickListener {
             val clipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("url", pugsImagesUrls[position])
             clipboard.primaryClip = clip
-            context.showSnackMessage(coordinatorLayout, context?.resources!!.getString(R.string
+            context.showSnackMessage(coordinatorLayout, message = context?.resources!!.getString(R
+                    .string
                     .url_copied_message))
             true
         }
         holder.pugImage.setOnClickListener {
-            val intent = Intent(context!!, ActivityFullSizePugImage::class.java)
+            val intent = Intent(context, ActivityFullSizePugImage::class.java)
             intent.putExtra("photos", pugsImagesUrls as Serializable)
             intent.putExtra("position", position)
             context?.startActivity(intent)

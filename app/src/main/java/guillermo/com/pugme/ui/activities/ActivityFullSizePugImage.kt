@@ -19,7 +19,7 @@ class ActivityFullSizePugImage : AppCompatActivity() {
         setContentView(R.layout.activity_full_size_image)
         toolbar?.title = ""
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
 
