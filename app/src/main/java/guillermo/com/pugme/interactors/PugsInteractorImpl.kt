@@ -18,7 +18,7 @@ class PugsInteractorImpl : PugsInteractor {
 
     override fun fetchPugsUrls(callBack: FetchPugsUrlsCallBack) {
 
-        service.fetchImagesUrls(LIMIT).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe { sfDistrictsModels -> callBack.onPugsUrlsFetched(sfDistrictsModels.pugs) }
+        service.fetchImagesUrls(LIMIT).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe { pugsModel -> callBack.onPugsUrlsFetched(pugsModel.pugs) }
 
     }
 
